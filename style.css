@@ -10,15 +10,16 @@ body {
     min-height: 100vh;
     margin: 0;
     background-color: #222;
-    color: #eee;
+    color: #fff;
     font-family: sans-serif;
 }
 
-hr {
-    width: 50%;
-    margin: 2rem;
+h2 {
+    font-size: 3rem;
+
 }
 
-div {
-    font-size: 3rem;
+p {
+    font-size: 1.5rem;
+    color: #ccc;
 }

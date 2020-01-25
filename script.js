@@ -1,24 +1,13 @@
-const counters = document.querySelectorAll('.counter');
+const countElem = document.querySelector('#count');
 
-counters.forEach(counter => {
-    counter.innerText = '0';
+updateVisitCount();
 
+function updateVisitCount() {
+    const url = 'https://api.countapi.xyz/update/sinisavukmirovic/github/?amount=1';
 
-    const updateCounter = () => {
-        const target = counter.getAttribute('data-target');
-        const c = +counter.innerText;
-        let increment = 10;
-
-        if (c < target) {
-            counter.innerText = c + 1;
-            setTimeout(updateCounter, increment);
-        }
-        else {
-            counter.innerText = target;
-        }
-    };
-
-    updateCounter();
-});
-
-// https://stackoverflow.com/questions/32741635/number-increment-animation-duration-slow-as-numbers-increase
+    fetch(url)
+    .then(res => res.json())
+    .then(res => {
+        countElem.innerHTML = res.value;
+    });
+}
